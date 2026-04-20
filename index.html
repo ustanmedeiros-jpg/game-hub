@@ -1,0 +1,415 @@
+<!DOCTYPE html>  <html lang="pt-BR">  
+<head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>GameHub - O Melhor Portal de Jogos</title>  
+  <style>  
+    * {  
+      margin: 0;  
+      padding: 0;  
+      box-sizing: border-box;  
+    }  body {  
+  margin: 0;  
+  font-family: 'Segoe UI', Arial, sans-serif;  
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);  
+  color: white;  
+  min-height: 100vh;  
+}  
+
+header {  
+  padding: 25px 20px;  
+  text-align: center;  
+  background: linear-gradient(135deg, #020617, #0f172a);  
+  font-size: 32px;  
+  font-weight: bold;  
+  letter-spacing: 2px;  
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);  
+  border-bottom: 1px solid #22c55e;  
+  position: sticky;  
+  top: 0;  
+  z-index: 100;  
+}  
+
+header span {  
+  color: #22c55e;  
+}  
+
+.subheader {  
+  text-align: center;  
+  padding: 15px;  
+  background: rgba(0,0,0,0.3);  
+  margin-bottom: 20px;  
+  font-size: 18px;  
+}  
+
+.grid {  
+  display: grid;  
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));  
+  gap: 25px;  
+  padding: 20px;  
+  max-width: 1400px;  
+  margin: 0 auto;  
+}  
+
+.card {  
+  background: linear-gradient(135deg, #1e293b, #0f172a);  
+  padding: 25px 20px;  
+  border-radius: 16px;  
+  text-align: center;  
+  transition: all 0.3s ease;  
+  cursor: pointer;  
+  border: 1px solid rgba(34,197,94,0.3);  
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);  
+}  
+
+.card:hover {  
+  transform: translateY(-8px) scale(1.02);  
+  background: linear-gradient(135deg, #334155, #1e293b);  
+  border-color: #22c55e;  
+  box-shadow: 0 10px 30px rgba(34,197,94,0.2);  
+}  
+
+.card h3 {  
+  margin: 15px 0;  
+  font-size: 22px;  
+  color: #fff;  
+}  
+
+.card p {  
+  font-size: 14px;  
+  color: #94a3b8;  
+  margin-bottom: 15px;  
+}  
+
+button {  
+  padding: 12px 25px;  
+  border: none;  
+  border-radius: 25px;  
+  background: linear-gradient(135deg, #22c55e, #16a34a);  
+  color: white;  
+  font-weight: bold;  
+  cursor: pointer;  
+  transition: all 0.2s;  
+  font-size: 16px;  
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);  
+}  
+
+button:hover {  
+  transform: scale(1.05);  
+  background: linear-gradient(135deg, #16a34a, #15803d);  
+  box-shadow: 0 4px 12px rgba(34,197,94,0.4);  
+}  
+
+.categoria {  
+  font-size: 28px;  
+  font-weight: bold;  
+  margin: 40px 20px 10px 20px;  
+  padding-left: 20px;  
+  border-left: 5px solid #22c55e;  
+}  
+
+.mini-jogos {  
+  background: linear-gradient(135deg, #1e1b4b, #0f172a);  
+  border-radius: 20px;  
+  margin: 20px;  
+  padding: 20px;  
+}  
+
+.jogos-iframe {  
+  display: grid;  
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  
+  gap: 20px;  
+  margin-top: 20px;  
+}  
+
+.jogo-embed {  
+  background: #0f172a;  
+  border-radius: 12px;  
+  padding: 15px;  
+  text-align: center;  
+  border: 1px solid #22c55e;  
+}  
+
+.jogo-embed iframe {  
+  width: 100%;  
+  height: 200px;  
+  border-radius: 8px;  
+  border: none;  
+  background: #000;  
+}  
+
+.notificacao {  
+  position: fixed;  
+  bottom: 20px;  
+  right: 20px;  
+  background: #22c55e;  
+  color: #000;  
+  padding: 12px 20px;  
+  border-radius: 10px;  
+  font-weight: bold;  
+  z-index: 1000;  
+  animation: fadeInOut 2s ease;  
+}  
+
+@keyframes fadeInOut {  
+  0% { opacity: 0; transform: translateY(20px); }  
+  15% { opacity: 1; transform: translateY(0); }  
+  85% { opacity: 1; transform: translateY(0); }  
+  100% { opacity: 0; transform: translateY(20px); }  
+}  
+
+footer {  
+  text-align: center;  
+  padding: 30px;  
+  background: #020617;  
+  margin-top: 50px;  
+  font-size: 14px;  
+  color: #64748b;  
+}  
+
+.busca {  
+  text-align: center;  
+  margin: 20px;  
+}  
+
+.busca input {  
+  padding: 12px 20px;  
+  width: 300px;  
+  border-radius: 25px;  
+  border: none;  
+  font-size: 16px;  
+  background: #1e293b;  
+  color: white;  
+  border: 1px solid #22c55e;  
+}  
+
+@media (max-width: 768px) {  
+  .grid { gap: 15px; }  
+  .card h3 { font-size: 18px; }  
+  button { padding: 8px 16px; font-size: 14px; }  
+}
+
+  </style>  
+</head>  
+<body>  <header>  
+  🎮 <span>GameHub</span> - O Melhor Portal de Jogos do Mundo 🌍  
+</header>  <div class="subheader">  
+  ⚡ Mais de 50 jogos e plataformas | Atualizado diariamente | Diversão garantida! 🚀  
+</div>  <div class="busca">  
+  <input type="text" id="searchInput" placeholder="🔍 Buscar jogo ou plataforma..." onkeyup="buscarJogos()">  
+</div>  <h2 class="categoria">🎯 Principais Plataformas</h2>  
+<div class="grid" id="gridPlataformas"></div>  <h2 class="categoria">🎲 Jogos Para Jogar Agora Mesmo (Grátis)</h2>  
+<div class="mini-jogos">  
+  <div class="jogos-iframe" id="jogosIframe"></div>  
+</div>  <h2 class="categoria">🎮 Jogos Mobile e Clássicos</h2>  
+<div class="grid" id="gridMobile"></div>  <h2 class="categoria">✨ Recomendados da Semana</h2>  
+<div class="grid" id="gridRecomendados"></div>  <footer>  
+  <p>🔥 GameHub - Sua central definitiva de entretenimento | Todos os direitos reservados ao universo gamer 🎮</p>  
+  <p style="margin-top: 10px;">⭐ Mais de 1 milhão de jogadores felizes | Diversão garantida sem complicações!</p>  
+</footer>  <script>  
+  // Lista completa de jogos e plataformas  
+  const plataformas = [  
+    { nome: "Fortnite", descricao: "Battle Royale épico", url: "https://www.epicgames.com/fortnite", cor: "#22c55e" },  
+    { nome: "Warzone", descricao: "Call of Duty Battle Royale", url: "https://www.callofduty.com/warzone", cor: "#ef4444" },  
+    { nome: "Minecraft", descricao: "Construa seu mundo", url: "https://www.minecraft.net", cor: "#3b82f6" },  
+    { nome: "Roblox", descricao: "Milhões de jogos criados por fãs", url: "https://www.roblox.com", cor: "#f97316" },  
+    { nome: "League of Legends", descricao: "MOBA mais famoso do mundo", url: "https://www.leagueoflegends.com", cor: "#d4af37" },  
+    { nome: "Steam", descricao: "A maior loja de jogos PC", url: "https://store.steampowered.com", cor: "#1e40af" },  
+    { nome: "Epic Games", descricao: "Jogos grátis toda semana", url: "https://store.epicgames.com", cor: "#2d3748" },  
+    { nome: "Xbox Cloud", descricao: "Jogue na nuvem", url: "https://www.xbox.com/play", cor: "#107c10" },  
+    { nome: "PlayStation Store", descricao: "Exclusivos PlayStation", url: "https://store.playstation.com", cor: "#006fcd" },  
+    { nome: "Valorant", descricao: "FPS tático da Riot", url: "https://playvalorant.com", cor: "#fa4454" },  
+    { nome: "Genshin Impact", descricao: "RPG de mundo aberto", url: "https://genshin.hoyoverse.com", cor: "#6b21a5" },  
+    { nome: "EA Sports FC", descricao: "O novo FIFA", url: "https://www.ea.com/ea-sports-fc", cor: "#dc2626" }  
+  ];  
+  
+  const jogosMobile = [  
+    { nome: "Free Fire", descricao: "Battle Royale mobile", url: "https://ff.garena.com", cor: "#fbbf24" },  
+    { nome: "Call of Duty Mobile", descricao: "FPS no celular", url: "https://www.callofduty.com/mobile", cor: "#ef4444" },  
+    { nome: "Pokémon Unite", descricao: "MOBA com Pokémon", url: "https://unite.pokemon.com", cor: "#facc15" },  
+    { nome: "Among Us", descricao: "Dedução e traição", url: "https://www.innersloth.com/games/among-us", cor: "#00a8ff" },  
+    { nome: "Clash Royale", descricao: "Estratégia em tempo real", url: "https://clashroyale.com", cor: "#3498db" },  
+    { nome: "Brawl Stars", descricao: "Arena de luta", url: "https://brawlstars.com", cor: "#f39c12" }  
+  ];  
+  
+  const recomendados = [  
+    { nome: "God of War Ragnarök", descricao: "⭐ 10/10 - Imperdível", url: "https://www.playstation.com/god-of-war-ragnarok", cor: "#e67e22" },  
+    { nome: "Elden Ring", descricao: "Melhor RPG 2024", url: "https://en.bandainamcoent.eu/elden-ring", cor: "#c0392b" },  
+    { nome: "The Last of Us", descricao: "Clássico absoluto", url: "https://www.playstation.com/the-last-of-us", cor: "#2c3e50" },  
+    { nome: "Cyberpunk 2077", descricao: "RPG futurista", url: "https://www.cyberpunk.net", cor: "#e74c3c" }  
+  ];  
+  
+  const jogosDiretos = [  
+    { nome: "Flappy Bird", iframe: "https://flappybird.io/embed", url: "https://flappybird.io" },  
+    { nome: "Geometry Dash", iframe: "https://geometrydash.io/embed", url: "https://geometrydash.io" },  
+    { nome: "Slope", iframe: "https://slope-game.io/embed", url: "https://slope-game.io" },  
+    { nome: "2048", iframe: "https://play2048.co/embed", url: "https://play2048.co" }  
+  ];  
+  
+  function abrir(url, nome) {  
+    window.open(url, '_blank');  
+    mostrarNotificacao(`🚀 Abrindo ${nome}! Divirta-se!`);  
+  }  
+  
+  function mostrarNotificacao(msg) {  
+    const notif = document.createElement('div');  
+    notif.className = 'notificacao';  
+    notif.innerText = msg;  
+    document.body.appendChild(notif);  
+    setTimeout(() => notif.remove(), 2000);  
+  }  
+  
+  function criarCards(lista, containerId) {  
+    const container = document.getElementById(containerId);  
+    if (!container) return;  
+    container.innerHTML = '';  
+    lista.forEach(item => {  
+      const card = document.createElement('div');  
+      card.className = 'card';  
+      card.innerHTML = `  
+        <h3>🎮 ${item.nome}</h3>  
+        <p>${item.descricao || 'Clique para jogar agora!'}</p>  
+        <button onclick="abrir('${item.url}', '${item.nome}')">🎯 Jogar Agora</button>  
+      `;  
+      container.appendChild(card);  
+    });  
+  }  
+  
+  function criarJogosIframe() {  
+    const container = document.getElementById('jogosIframe');  
+    if (!container) return;  
+    container.innerHTML = '';  
+    jogosDiretos.forEach(jogo => {  
+      const div = document.createElement('div');  
+      div.className = 'jogo-embed';  
+      div.innerHTML = `  
+        <h3>🎲 ${jogo.nome}</h3>  
+        <iframe src="${jogo.iframe}" scrolling="no" allowfullscreen></iframe>  
+        <button onclick="abrir('${jogo.url}', '${jogo.nome}')" style="margin-top: 10px;">🎮 Jogar em Tela Cheia</button>  
+      `;  
+      container.appendChild(div);  
+    });  
+  }  
+  
+  function buscarJogos() {  
+    const termo = document.getElementById('searchInput').value.toLowerCase();  
+    const todasPlataformas = [...plataformas, ...jogosMobile, ...recomendados];  
+    const filtrados = todasPlataformas.filter(jogo =>   
+      jogo.nome.toLowerCase().includes(termo)  
+    );  
+      
+    if (termo.length > 0) {  
+      const containerUnificado = document.createElement('div');  
+      containerUnificado.className = 'grid';  
+      containerUnificado.id = 'resultadosBusca';  
+        
+      const oldResults = document.getElementById('resultadosBusca');  
+      if(oldResults) oldResults.remove();  
+        
+      const section = document.createElement('div');  
+      section.innerHTML = '<h2 class="categoria">🔍 Resultados da Busca</h2>';  
+      section.appendChild(containerUnificado);  
+        
+      const gridPlataformas = document.getElementById('gridPlataformas');  
+      const gridMobile = document.getElementById('gridMobile');  
+      const gridRecomendados = document.getElementById('gridRecomendados');  
+        
+      // Esconde os grids normais durante busca  
+      gridPlataformas.style.display = 'none';  
+      gridMobile.style.display = 'none';  
+      gridRecomendados.style.display = 'none';  
+        
+      // Remove se já existir  
+      const existing = document.querySelector('.busca-section');  
+      if(existing) existing.remove();  
+        
+      section.className = 'busca-section';  
+      document.querySelector('.mini-jogos').insertAdjacentElement('afterend', section);  
+        
+      filtrados.forEach(item => {  
+        const card = document.createElement('div');  
+        card.className = 'card';  
+        card.innerHTML = `  
+          <h3>🎮 ${item.nome}</h3>  
+          <p>${item.descricao || 'Clique para jogar!'}</p>  
+          <button onclick="abrir('${item.url}', '${item.nome}')">🎯 Jogar Agora</button>  
+        `;  
+        containerUnificado.appendChild(card);  
+      });  
+        
+      if(filtrados.length === 0) {  
+        containerUnificado.innerHTML = '<div class="card" style="grid-column:1/-1"><h3>😢 Nenhum jogo encontrado</h3><p>Tente outra busca!</p></div>';  
+      }  
+    } else {  
+      // Restaura os grids normais  
+      document.getElementById('gridPlataformas').style.display = 'grid';  
+      document.getElementById('gridMobile').style.display = 'grid';  
+      document.getElementById('gridRecomendados').style.display = 'grid';  
+      const buscaSection = document.querySelector('.busca-section');  
+      if(buscaSection) buscaSection.remove();  
+    }  
+  }  
+  
+  // Adicionar também jogos de categoria extra: Jogos de Navegador famosos  
+  function adicionarJogosExtras() {  
+    const extraGames = [  
+      { nome: "Pac-Man", descricao: "Clássico dos arcades", url: "https://www.google.com/logos/2010/pacman10-i.html", cor: "#f1c40f" },  
+      { nome: "Snake", descricao: "O jogo da cobrinha", url: "https://playsnake.org", cor: "#2ecc71" },  
+      { nome: "Tetris", descricao: "Organize os blocos", url: "https://tetris.com/play-tetris", cor: "#e67e22" },  
+      { nome: "Subway Surfers", descricao: "Corrida infinita", url: "https://poki.com/br/g/subway-surfers", cor: "#3498db" }  
+    ];  
+      
+    const container = document.createElement('div');  
+    container.id = 'gridExtras';  
+    const titulo = document.createElement('h2');  
+    titulo.className = 'categoria';  
+    titulo.innerText = '🕹️ Clássicos e Arcades';  
+    document.querySelector('.mini-jogos').insertAdjacentElement('afterend', titulo);  
+    titulo.insertAdjacentElement('afterend', container);  
+    container.className = 'grid';  
+      
+    extraGames.forEach(game => {  
+      const card = document.createElement('div');  
+      card.className = 'card';  
+      card.innerHTML = `  
+        <h3>🎮 ${game.nome}</h3>  
+        <p>${game.descricao}</p>  
+        <button onclick="abrir('${game.url}', '${game.nome}')">🕹️ Jogar</button>  
+      `;  
+      container.appendChild(card);  
+    });  
+  }  
+  
+  // Inicializar todos os cards  
+  criarCards(plataformas, 'gridPlataformas');  
+  criarCards(jogosMobile, 'gridMobile');  
+  criarCards(recomendados, 'gridRecomendados');  
+  criarJogosIframe();  
+  adicionarJogosExtras();  
+  
+  // Adicionar contador de visitantes fake  
+  function contadorVisitas() {  
+    let visits = localStorage.getItem('gamehub_visits');  
+    if(!visits) visits = 0;  
+    visits = parseInt(visits) + 1;  
+    localStorage.setItem('gamehub_visits', visits);  
+    const contadorSpan = document.createElement('span');  
+    contadorSpan.style.position = 'fixed';  
+    contadorSpan.style.bottom = '10px';  
+    contadorSpan.style.left = '10px';  
+    contadorSpan.style.background = '#22c55e';  
+    contadorSpan.style.padding = '5px 10px';  
+    contadorSpan.style.borderRadius = '20px';  
+    contadorSpan.style.fontSize = '12px';  
+    contadorSpan.style.color = '#000';  
+    contadorSpan.style.fontWeight = 'bold';  
+    contadorSpan.style.zIndex = '999';  
+    contadorSpan.innerText = `👥 Visitantes: ${visits}`;  
+    document.body.appendChild(contadorSpan);  
+  }  
+  contadorVisitas();  
+  
+  // Animar título  
+  console.log('%c🎮 GameHub - O melhor portal de jogos do mundo! 🎮', 'color: #22c55e; font-size: 20px; font-weight: bold;');  
+</script>  </body>  
+</html> 
